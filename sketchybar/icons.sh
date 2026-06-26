@@ -1,0 +1,11 @@
+#!/bin/sh
+
+APPLE=
+TERM=
+FOLDER=󰉋
+MUSIC=󰝚
+CPU=󰍛
+RAM=󰘚
+BATTERY=󰁹
+CLOCK=󰥔
+GIT=󰊢
