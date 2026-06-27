@@ -1,0 +1,118 @@
+" ================================
+"        PRO VIM CONFIG
+" ================================
+
+" ----------------------
+" Plugins (via vim-plug)
+" ----------------------
+call plug#begin('~/.vim/plugged')
+
+" Auto-brackets
+Plug 'jiangmiao/auto-pairs'
+
+" Sane defaults
+Plug 'tpope/vim-sensible'
+
+" File explorer
+Plug 'preservim/nerdtree'
+
+" Fuzzy finder
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" Auto-completion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+Plug 'Yggdroot/indentLine'
+
+
+packadd coc.nvim
+
+" =========================
+"  BASIC COC SETTINGS
+" =========================
+
+" Use tab for trigger completion
+inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+" Confirm selection
+inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<CR>"
+
+" Show documentation on K
+nnoremap <silent> K :call CocActionAsync('doHover')<CR>
+
+" Jump to definition
+nmap <silent> gd <Plug>(coc-definition)
+
+" Auto diagnostics
+autocmd CursorHold * silent call CocActionAsync('diagnosticInfo')
+
+" Enable snippets, format, and completion
+let g:coc_global_extensions = [
+      \ 'coc-java',
+      \ 'coc-json',
+      \ 'coc-html',
+      \ 'coc-css',
+      \ 'coc-tsserver'
+      \ ]
+
+
+
+call plug#end()
+
+
+
+" ----------------------
+" Basic settings
+" ----------------------
+syntax on
+set number
+set norelativenumber
+autocmd VimEnter,WinEnter,BufWinEnter * set number norelativenumber
+autocmd InsertEnter * set norelativenumber
+autocmd InsertLeave * set number norelativenumber
+set relativenumber
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set smartindent
+set autoindent
+set cursorline
+set termguicolors
+set background=dark
+set showmatch
+set mouse=a
+set clipboard=unnamedplus
+
+" Thin cursor
+set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr-o:hor20
+
+" ----------------------
+" Key mappings
+" ----------------------
+inoremap jk <Esc>              " exit insert mode quickly
+nnoremap <C-n> :NERDTreeToggle<CR>  " Ctrl+n toggles file explorer
+nnoremap <C-p> :Files<CR>      " Ctrl+p for fuzzy file search
+
+" ----------------------
+" Coc (auto-completion) settings
+" ----------------------
+let g:coc_global_extensions = ['coc-java', 'coc-json', 'coc-html', 'coc-css', 'coc-tsserver']
+
+syntax off
+" Enable smart indentation
+set autoindent       " copy indentation from previous line
+set smartindent      " auto-indent for programming
+set shiftwidth=4     " number of spaces to indent
+set tabstop=4        " a tab counts as 4 spaces
+set expandtab        " use spaces instead of real tabs
+
+" Indent guides
+let g:indentLine_enabled = 1
+let g:indentLine_char = '│'   " vertical line
+let g:indentLine_color_gui = '#555555'
+let g:indentLine_fileTypeExclude = ['help', 'nerdtree']
+
+filetype plugin indent on
+

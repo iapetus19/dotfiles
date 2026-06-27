@@ -1,15 +1,21 @@
-#!/bin/sh
+#!/bin/bash
 
-export BLACK=0xff101010
-export WHITE=0xffffffff
-export GREY=0xff7E7E7E
-export LIGHT_GREY=0xffA0A0A0
+BAR_COLOR=0xaa101014
+BAR_BORDER=0x00000000
 
-export RED=0xfff5a191
-export GREEN=0xff90b99f
-export YELLOW=0xffe6b99d
-export BLUE=0xffaca1cf
-export MAGENTA=0xffe29eca
-export CYAN=0xffea83a5
+WHITE=0xffffffff
+BLACK=0xff000000
+GREY=0xffb8b8b8
+DARK_GREY=0xff5f6368
 
-export TRANSPARENT=0x00000000
+WORKSPACE_ACTIVE=0xffffffff
+WORKSPACE_INACTIVE=0x00000000
+WORKSPACE_TEXT_ACTIVE=0xff000000
+WORKSPACE_TEXT_INACTIVE=0xffffffff
+
+POPUP_BACKGROUND=0xee18181b
+
+BLUE=0xff7dc4ff
+GREEN=0xff7dd3a0
+RED=0xffff6b6b
+YELLOW=0xffffd166

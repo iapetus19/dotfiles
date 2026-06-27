@@ -1,0 +1,40 @@
+gui:
+  theme:
+    activeBorderColor:
+      - green
+      - bold
+    inactiveBorderColor:
+      - white
+    searchingActiveBorderColor:
+      - yellow
+      - bold
+    optionsTextColor:
+      - green
+    selectedLineBgColor:
+      - black
+    selectedRangeBgColor:
+      - black
+    cherryPickedCommitBgColor:
+      - black
+    cherryPickedCommitFgColor:
+      - green
+    unstagedChangesColor:
+      - red
+
+  showIcons: true
+  showBottomLine: true
+  showPanelJumps: true
+  showCommandLog: true
+  border: rounded
+
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never
+
+os:
+  edit: "code --wait {{filename}}"
+  editAtLine: "code --goto {{filename}}:{{line}}"
+
+refresher:
+  refreshInterval: 5

@@ -1,11 +1,27 @@
-#!/bin/sh
+#!/bin/bash
 
-APPLE=
-TERM=
-FOLDER=󰉋
-MUSIC=󰝚
-CPU=󰍛
-RAM=󰘚
-BATTERY=󰁹
-CLOCK=󰥔
-GIT=󰊢
+# Apple
+APPLE="􀣺"
+
+# Clock
+CLOCK="􀐫"
+
+# Battery
+BATTERY_FULL="􀛨"
+BATTERY_75="􀺸"
+BATTERY_50="􀺶"
+BATTERY_LOW="􀛩"
+BATTERY_CHARGING="􀢋"
+
+# Volume
+VOLUME_HIGH="􀊩"
+VOLUME_MEDIUM="􀊧"
+VOLUME_LOW="􀊥"
+VOLUME_MUTED="􀊣"
+
+# Media
+MEDIA_PLAY="􀊄"
+MEDIA_PAUSE="􀊆"
+MEDIA_PREV="􀊂"
+MEDIA_NEXT="􀊈"
+MEDIA_NOTE="􀑪"

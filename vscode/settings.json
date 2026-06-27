@@ -15,8 +15,8 @@
     // Editor
     // =========================
     "editor.fontFamily": "Geist Mono, Berkeley Mono, monospace",
-    "editor.fontSize": 14,
-    "editor.lineHeight": 20,
+    "editor.fontSize": 15,
+    "editor.lineHeight": 26,
     "editor.fontLigatures": true,
 
     "editor.lineNumbers": "on",
@@ -29,7 +29,7 @@
     "editor.minimap.renderCharacters": false,
     "editor.minimap.autohide": "mouseover",
 
-    "editor.wordWrap": "on",
+    "editor.wordWrap": "off",
 
     "editor.guides.indentation": true,
     "editor.matchBrackets": "always",
@@ -89,11 +89,11 @@
     // =========================
     // Workbench
     // =========================
-    "workbench.activityBar.location": "hidden",
+    "workbench.activityBar.location": "left",
     "workbench.sideBar.location": "right",
     "workbench.statusBar.visible": false,
 
-    "workbench.editor.showTabs": "none",
+    "workbench.editor.showTabs": "singleFile",
     "workbench.editor.enablePreview": false,
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "workbench.editor.editorActionsLocation": "hidden",
@@ -111,7 +111,7 @@
     // =========================
     // Breadcrumbs
     // =========================
-    "breadcrumbs.enabled": false,
+    "breadcrumbs.enabled": true,
 
     // =========================
     // Diff Editor
@@ -241,5 +241,13 @@
     // =========================
     // APC (optional)
     // =========================
-    "apc.font.family": "Geist Mono"
+    "apc.font.family": "Geist Mono",
+
+"terminal.integrated.fontFamily": "SF Mono",
+"terminal.integrated.fontSize": 15,
+"terminal.integrated.fontWeight": "normal",
+"terminal.integrated.letterSpacing": 0,
+"terminal.integrated.lineHeight": 1,
+"terminal.integrated.gpuAcceleration": "off",
+"terminal.integrated.cursorBlinking": true
 }

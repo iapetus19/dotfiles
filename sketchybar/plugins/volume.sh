@@ -1,20 +1,19 @@
-#!/bin/sh
+#!/bin/bash
 
-# The volume_change event supplies a $INFO variable in which the current volume
-# percentage is passed to the script.
+source "$HOME/.config/sketchybar/icons.sh"
 
-if [ "$SENDER" = "volume_change" ]; then
-  VOLUME="$INFO"
+[ "$SENDER" != "volume_change" ] && exit 0
 
-  case "$VOLUME" in
-    [6-9][0-9]|100) ICON="󰕾"
-    ;;
-    [3-5][0-9]) ICON="󰖀"
-    ;;
-    [1-9]|[1-2][0-9]) ICON="󰕿"
-    ;;
-    *) ICON="󰖁"
-  esac
+VOLUME="$INFO"
 
-  sketchybar --set "$NAME" icon="$ICON" label="$VOLUME%"
+if [ "$VOLUME" -eq 0 ]; then
+    ICON="$VOLUME_MUTED"
+elif [ "$VOLUME" -lt 35 ]; then
+    ICON="$VOLUME_LOW"
+elif [ "$VOLUME" -lt 70 ]; then
+    ICON="$VOLUME_MEDIUM"
+else
+    ICON="$VOLUME_HIGH"
 fi
+
+sketchybar --set "$NAME" icon="$ICON" label="${VOLUME}%"
