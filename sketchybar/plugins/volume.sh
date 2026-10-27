@@ -1,19 +1,56 @@
 #!/bin/bash
 
-source "$HOME/.config/sketchybar/icons.sh"
+WIDTH=100
 
-[ "$SENDER" != "volume_change" ] && exit 0
+volume_change() {
+  source "$HOME/Developer/dotfiles2/sketchybar/icons.sh"
+  case $INFO in
+    [6-9][0-9]|100) ICON=$VOLUME_100
+    ;;
+    [3-5][0-9]) ICON=$VOLUME_66
+    ;;
+    [1-2][0-9]) ICON=$VOLUME_33
+    ;;
+    [1-9]) ICON=$VOLUME_10
+    ;;
+    0) ICON=$VOLUME_0
+    ;;
+    *) ICON=$VOLUME_100
+  esac
 
-VOLUME="$INFO"
+  sketchybar --set volume_icon label=$ICON
 
-if [ "$VOLUME" -eq 0 ]; then
-    ICON="$VOLUME_MUTED"
-elif [ "$VOLUME" -lt 35 ]; then
-    ICON="$VOLUME_LOW"
-elif [ "$VOLUME" -lt 70 ]; then
-    ICON="$VOLUME_MEDIUM"
-else
-    ICON="$VOLUME_HIGH"
-fi
+  sketchybar --set $NAME slider.percentage=$INFO \
+             --animate tanh 30 --set $NAME slider.width=$WIDTH
 
-sketchybar --set "$NAME" icon="$ICON" label="${VOLUME}%"
+  sleep 2
+
+  # Check wether the volume was changed another time while sleeping
+  FINAL_PERCENTAGE=$(sketchybar --query $NAME | jq -r ".slider.percentage")
+  if [ "$FINAL_PERCENTAGE" -eq "$INFO" ]; then
+    sketchybar --animate tanh 30 --set $NAME slider.width=0
+  fi
+}
+
+mouse_clicked() {
+  osascript -e "set volume output volume $PERCENTAGE"
+}
+
+mouse_entered() {
+  sketchybar --set $NAME slider.knob.drawing=on
+}
+
+mouse_exited() {
+  sketchybar --set $NAME slider.knob.drawing=off
+}
+
+case "$SENDER" in
+  "volume_change") volume_change
+  ;;
+  "mouse.clicked") mouse_clicked
+  ;;
+  "mouse.entered") mouse_entered
+  ;;
+  "mouse.exited") mouse_exited
+  ;;
+esac

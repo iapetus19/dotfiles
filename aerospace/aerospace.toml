@@ -1,11 +1,9 @@
 # ─────────────────────────────────────────────
 #  AeroSpace Configuration
-#  Monitor 1 (primary)   → Workspaces 1–5
-#  Monitor 2 (secondary) → Workspaces 6–9
-#  Jump monitors: alt-`  |  move window: alt-shift-`
+#  Monitor 1 (BenQ GW2490)             → Workspaces 1–5
+#  Monitor 2 (Built-in Retina Display) → Workspaces 6–9
 # ─────────────────────────────────────────────
 
-# Notify SketchyBar on workspace change + which monitor is focused
 exec-on-workspace-change = [
   '/bin/bash', '-c',
   'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE'
@@ -15,88 +13,67 @@ start-at-login = true
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
 
-# ─────────────────────────────────────────────
-#  Pin workspaces to monitors
-#  Stable regardless of physical placement (side-by-side or stacked)
-# ─────────────────────────────────────────────
 [workspace-to-monitor-force-assignment]
-1 = [1, 2]
-2 = [1, 2]
-3 = [1, 2]
-4 = [1, 2]
-5 = [1, 2]
-6 = [2, 1]
-7 = [2, 1]
-8 = [2, 1]
-9 = [2, 1]
+1 = ['BenQ GW2490', 'Built-in Retina Display']
+2 = ['BenQ GW2490', 'Built-in Retina Display']
+3 = ['BenQ GW2490', 'Built-in Retina Display']
+4 = ['BenQ GW2490', 'Built-in Retina Display']
+5 = ['BenQ GW2490', 'Built-in Retina Display']
+6 = ['Built-in Retina Display', 'BenQ GW2490']
+7 = ['Built-in Retina Display', 'BenQ GW2490']
+8 = ['Built-in Retina Display', 'BenQ GW2490']
+9 = ['Built-in Retina Display', 'BenQ GW2490']
 
-# ─────────────────────────────────────────────
-#  Gaps
-#  outer.top is extra padding *below* SketchyBar on top of the
-#  safe-area AeroSpace already respects. Increase if SketchyBar
-#  overlaps windows (common when bar height > default menu bar).
-# ─────────────────────────────────────────────
 [gaps]
-inner.horizontal = 5
-inner.vertical   = 5
-outer.left       = 5
-outer.bottom     = 5
-outer.top        = 43
-outer.right      = 5
+inner.horizontal = 0
+inner.vertical   = 0
+outer.left       = 0
+outer.bottom     = 0
+outer.right      = 0
 
-# ─────────────────────────────────────────────
-#  Main mode
-# ─────────────────────────────────────────────
+outer.top = [
+  { monitor."Built-in Retina Display" = 0 },
+  { monitor."BenQ GW2490" = 32 },
+  32
+]
+
 [mode.main.binding]
-
-# ── Focus windows ────────────────────────────
 alt-left  = 'focus left'
 alt-down  = 'focus down'
 alt-up    = 'focus up'
 alt-right = 'focus right'
 
-# ── Move windows ─────────────────────────────
 alt-shift-left  = 'move left'
 alt-shift-down  = 'move down'
 alt-shift-up    = 'move up'
 alt-shift-right = 'move right'
 
-# ── Resize ───────────────────────────────────
 alt-ctrl-left  = 'resize width -50'
 alt-ctrl-right = 'resize width +50'
 alt-ctrl-up    = 'resize height -50'
 alt-ctrl-down  = 'resize height +50'
 
-# ── Layout toggles ───────────────────────────
 alt-slash   = 'layout tiles horizontal vertical'
 alt-comma   = 'layout accordion horizontal vertical'
 alt-f       = 'fullscreen'
 alt-shift-f = 'layout floating tiling'
 
-# Balance sizes
 alt-shift-equal = 'balance-sizes'
 
-# ── Monitor navigation ───────────────────────
-# Position-agnostic: cycles through monitors regardless of
-# whether they are stacked vertically or placed side by side.
-alt-backtick       = 'focus-monitor --wrap-around next'
-alt-shift-backtick = 'move-node-to-monitor --wrap-around next'
+alt-m       = 'focus-monitor --wrap-around next'
+alt-shift-m = 'move-node-to-monitor --wrap-around next'
 
-
-# ── Workspaces: Monitor 1 → 1–5 ─────────────
 alt-1 = 'workspace 1'
 alt-2 = 'workspace 2'
 alt-3 = 'workspace 3'
 alt-4 = 'workspace 4'
 alt-5 = 'workspace 5'
 
-# ── Workspaces: Monitor 2 → 6–9 ─────────────
 alt-6 = 'workspace 6'
 alt-7 = 'workspace 7'
 alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
 
-# ── Move window to workspace (and follow it) ─
 alt-shift-1 = ['move-node-to-workspace 1', 'workspace 1']
 alt-shift-2 = ['move-node-to-workspace 2', 'workspace 2']
 alt-shift-3 = ['move-node-to-workspace 3', 'workspace 3']
@@ -107,17 +84,12 @@ alt-shift-7 = ['move-node-to-workspace 7', 'workspace 7']
 alt-shift-8 = ['move-node-to-workspace 8', 'workspace 8']
 alt-shift-9 = ['move-node-to-workspace 9', 'workspace 9']
 
-# ── Back-and-forth / move workspace to monitor
 alt-tab       = 'workspace-back-and-forth'
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
-# ── Meta ─────────────────────────────────────
 alt-shift-r         = 'reload-config'
 alt-shift-semicolon = 'mode service'
 
-# ─────────────────────────────────────────────
-#  Service mode  (alt-shift-; → Esc to exit)
-# ─────────────────────────────────────────────
 [mode.service.binding]
 esc       = 'mode main'
 r         = ['flatten-workspace-tree', 'mode main']
@@ -128,9 +100,6 @@ alt-shift-down  = ['join-with down',  'mode main']
 alt-shift-up    = ['join-with up',    'mode main']
 alt-shift-right = ['join-with right', 'mode main']
 
-# ─────────────────────────────────────────────
-#  Window rules
-# ─────────────────────────────────────────────
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
 run       = 'layout floating'
@@ -144,5 +113,5 @@ if.app-id = 'com.apple.calculator'
 run       = 'layout floating'
 
 [[on-window-detected]]
-if.app-id = 'com.apple.spotify'
+if.app-id = 'com.spotify.client'
 run       = 'layout floating'

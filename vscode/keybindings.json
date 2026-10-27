@@ -1,3 +1,95 @@
-// Place your key bindings in this file to override the defaults
 [
+    {
+        "key": "cmd+j",
+        "command": "workbench.action.togglePanel"
+    },
+    {
+        "key": "cmd+b",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "cmd+\\",
+        "command": "workbench.action.splitEditor"
+    },
+    {
+        "key": "cmd+1",
+        "command": "workbench.action.focusFirstEditorGroup"
+    },
+    {
+        "key": "cmd+2",
+        "command": "workbench.action.focusSecondEditorGroup"
+    },
+    {
+        "key": "cmd+3",
+        "command": "workbench.action.focusThirdEditorGroup"
+    },
+    {
+        "key": "alt+up",
+        "command": "editor.action.moveLinesUpAction",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+down",
+        "command": "editor.action.moveLinesDownAction",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+up",
+        "command": "editor.action.copyLinesUpAction",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+down",
+        "command": "editor.action.copyLinesDownAction",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "cmd+/",
+        "command": "editor.action.commentLine",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "cmd+d",
+        "command": "editor.action.addSelectionToNextFindMatch",
+        "when": "editorFocus"
+    },
+    {
+        "key": "cmd+shift+l",
+        "command": "editor.action.selectHighlights",
+        "when": "editorFocus"
+    },
+    {
+        "key": "cmd+enter",
+        "command": "editor.action.insertLineAfter",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "cmd+shift+enter",
+        "command": "editor.action.insertLineBefore",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "cmd+shift+d",
+        "command": "editor.action.duplicateSelection"
+    },
+    {
+        "key": "cmd+k cmd+s",
+        "command": "workbench.action.openGlobalKeybindings"
+    },
+    {
+        "key": "cmd+shift+e",
+        "command": "workbench.view.explorer"
+    },
+    {
+        "key": "cmd+shift+g",
+        "command": "workbench.view.scm"
+    },
+    {
+        "key": "cmd+shift+x",
+        "command": "workbench.view.extensions"
+    },
+    {
+        "key": "cmd+shift+t",
+        "command": "workbench.action.reopenClosedEditor"
+    }
 ]
