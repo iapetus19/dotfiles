@@ -38,21 +38,25 @@ outer.top = [
 ]
 
 [mode.main.binding]
-alt-left  = 'focus left'
-alt-down  = 'focus down'
-alt-up    = 'focus up'
-alt-right = 'focus right'
+# ── Focus windows (Ctrl + Alt to leave Option + Arrow free for text editing) ──
+ctrl-alt-left  = 'focus left'
+ctrl-alt-down  = 'focus down'
+ctrl-alt-up    = 'focus up'
+ctrl-alt-right = 'focus right'
 
+# ── Move windows ─────────────────────────────
 alt-shift-left  = 'move left'
 alt-shift-down  = 'move down'
 alt-shift-up    = 'move up'
 alt-shift-right = 'move right'
 
-alt-ctrl-left  = 'resize width -50'
-alt-ctrl-right = 'resize width +50'
-alt-ctrl-up    = 'resize height -50'
-alt-ctrl-down  = 'resize height +50'
+# ── Resize (Using Cmd + Alt to prevent collision) ──
+cmd-alt-left  = 'resize width -50'
+cmd-alt-right = 'resize width +50'
+cmd-alt-up    = 'resize height -50'
+cmd-alt-down  = 'resize height +50'
 
+# ── Layout toggles ───────────────────────────
 alt-slash   = 'layout tiles horizontal vertical'
 alt-comma   = 'layout accordion horizontal vertical'
 alt-f       = 'fullscreen'
