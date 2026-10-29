@@ -21,7 +21,7 @@ toggle_detail() {
 
 toggle_devices() {
   which SwitchAudioSource >/dev/null || exit 0
-  source "$HOME/Developer/dotfiles2/sketchybar/colors.sh"
+  source "$HOME/Developer/dotfiles/sketchybar/colors.sh"
 
   args=(--remove '/volume.device\.*/' --set "$NAME" popup.drawing=toggle)
   COUNTER=0
