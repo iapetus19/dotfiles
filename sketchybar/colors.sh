@@ -1,31 +1,30 @@
 #!/bin/bash
 
-# Base Colors
-export BLACK=0xff1e1e1e
-export WHITE=0xfff2f2f2
-export RED=0xffe06c75       # Soft red/pinkish red
-export GREEN=0xff98c379
-export BLUE=0xff61afef
-export YELLOW=0xffe5c07b
-export ORANGE=0xffd19a66
-export MAGENTA=0xffc678dd
-export GREY=0xff5c6370
+# Warm Vintage Retro Palette
+export BLACK=0xff231917          # Deep warm espresso (replaces harsh pure black)
+export WHITE=0xfffaf0e4          # Soft warm cream-white
+export RED=0xffe05a47            # Vintage coral red
+export GREEN=0xff8ab17d          # Muted sage/retro green
+export BLUE=0xffeb6f45           # Warm Sunset Terracotta (replaces harsh neon blue!)
+export YELLOW=0xfff6bd60         # Warm Amber Yellow (the Arc pill color you liked)
+export ORANGE=0xfff2845c         # Soft Peach-Orange
+export MAGENTA=0xffd48c70        # Warm Rose-Sand
+export GREY=0xff8c7a70           # Warm muted taupe
+export ICE_BLUE=0xfff5dec2       # Warm Vintage Cream/Sand (for the clock pill)
 export TRANSPARENT=0x00000000
 
 # Bar Appearance
-export BAR_COLOR=0xcc111111           # Deep translucent black (80%)
-export BAR_BORDER_COLOR=0xff2c2c2c    # Dark border to subtly define edges
+export BAR_COLOR=0xe61c1614          # Cozy dark warm charcoal-brown base
+export BAR_BORDER_COLOR=0x00000000   # No harsh outer bar border
 
-# Icon/Label Colors — peach-pink-white blend
-export ICON_COLOR=0xfff4d9d6          # Soft peach-pink that stands out on red
-export LABEL_COLOR=0xfff4d9d6
+# Default Icon/Label Colors (for unboxed items like Volume, Battery, CPU)
+export ICON_COLOR=$WHITE
+export LABEL_COLOR=$WHITE
 
-# Backgrounds (for modules/popups)
-export BACKGROUND_1=0x66111111        # Transparent black with a warm hue
-export BACKGROUND_2=0x66111111
+# Subtle pill backgrounds
+export BACKGROUND_1=0xff2e2522       # Soft warm dark pill for inactive spaces
+export BACKGROUND_2=0x00000000       # No borders
 
-export POPUP_BACKGROUND_COLOR=0xdd1c1c1c  # Less transparent for readability
-export POPUP_BORDER_COLOR=0xfff4d9d6      # Same as icon for unity
-
-export SHADOW_COLOR=0x44000000           # Subtle dark shadow
-
+export POPUP_BACKGROUND_COLOR=0xff2a211e
+export POPUP_BORDER_COLOR=0xfff6bd60
+export SHADOW_COLOR=0x00000000
