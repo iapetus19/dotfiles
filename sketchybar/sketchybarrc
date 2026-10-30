@@ -19,8 +19,9 @@ launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist > /
 
 # Full-width Edge-to-Edge Navbar (no left/right gaps!)
 bar=(
-  height=38
-  color=0xff261e1b
+  height=32
+  color=0x00000000
+  topmost=window
   border_width=0
   corner_radius=0
   shadow=off
@@ -70,6 +71,12 @@ source "$ITEM_DIR/battery.sh"
 source "$ITEM_DIR/volume.sh"
 source "$ITEM_DIR/cpu.sh"
 source "$ITEM_DIR/spotify.sh"
+
+# Left & Right Frosted Islands
+sketchybar --add bracket left_island apple.logo '/space\..*/' front_app \
+           --set left_island background.drawing=on background.color=0xb8261e1b background.height=28 background.corner_radius=8 blur_radius=20 \
+           --add bracket right_island '/cpu\..*/' volume volume_icon battery calendar spotify.anchor \
+           --set right_island background.drawing=on background.color=0xb8261e1b background.height=28 background.corner_radius=8 blur_radius=20
 
 sketchybar --update
 echo "sketchybar configuration loaded.."
